@@ -1,7 +1,12 @@
 // First build Server.js
 const express = require('express') //~carries over to router.js
 const server = express() //~carries over to router.js
+
+//Last step - IMPORT ROUTER
+const router = require('./routes/router.js') 
+
 const PORT = process.env.PORT || 2025 //builds root for localhost:2025
+
 
 
 
@@ -22,7 +27,14 @@ server.use(helmet.contentSecurityPolicy({
 
 server.use(cors()) //use bootstrap
 server.use(express.json())
-server.use(express.urlencodded({ extended: true}))
+server.use(express.urlencoded({ extended: true}))
+
+
+
+//part2 of last step - WHEN i see / in localhost:2025, then use ROUTER.js
+server.use('/', router)
+
+
 
 
 //creates http://localhost:2025 >> Cannot Get / because we havae not told it what to get or do
@@ -30,4 +42,7 @@ server.use(express.urlencodded({ extended: true}))
 server.listen(PORT, ()=> console.log(`Movies are exciting to watch!`)) //check terminal and localhost
 
 
+
+
 //Next is create a config.js folder, add a dbconfig folder
+//After completing part2 create a ROUTER.js 
