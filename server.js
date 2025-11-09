@@ -5,8 +5,29 @@ const PORT = process.env.PORT || 2025 //builds root for localhost:2025
 
 
 
+//Security
+const helmet = require('helmet')
+const cors = require('cors')
+
+//configuring helmet
+server.use(helmet.contentSecurityPolicy({
+    useDefaults: true,
+    crossOriginResourcePolicy: false,
+    crossOriginEmbedderPolicy: false,
+    directives: {
+        "img-src": ["'self'", "https: data"],
+        "scriptSrc": ["'self'", "cdn.jsdelivr.net"]
+    }
+}))
+
+server.use(cors()) //use bootstrap
+server.use(express.json())
+server.use(express.urlencodded({ extended: true}))
 
 
 //creates http://localhost:2025 >> Cannot Get / because we havae not told it what to get or do
 //~ Start with Router.js to tell server what to do
-server.listen(PORT, ()=> console.log(`Movies are exciting to watch! http://localhost:${PORT}`)) //check terminal and localhost
+server.listen(PORT, ()=> console.log(`Movies are exciting to watch!`)) //check terminal and localhost
+
+
+//Next is create a config.js folder, add a dbconfig folder
