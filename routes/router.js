@@ -1,4 +1,4 @@
-// //Second build Router.js
+//Third build Router.js
 //const express, router, and module.export gets server running
 const express = require('express')
 const router = express.Router()
@@ -16,6 +16,8 @@ router.get('/api', (req, res)=> {
     })
 }) 
 
+router.use('/api/movie', require('./api/movieRoutes'))
+//click on link in localhost:2025, should see data
 
 
 //build ERROR HANDLE PAGE
@@ -31,3 +33,7 @@ module.exports = router
 // Set up ROOT ROUTE by creating const PORT
 //Begin ROOT with router.get('/api)
 //Build 404 Error page
+// ^^^^push to gitHub
+
+//i want access to the data for http://localhost:2025/api/movie link without getting a 404 Error
+// create DataAccesObject DAOs Folder - {}, :, 
