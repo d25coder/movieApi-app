@@ -6,7 +6,7 @@
 const express = require('express')
 const router= express.Router()
 
-//pull movieDao and name it name
+//imported movieDao file to movieRoutes and name it name
 const { movieDao: dao} = require('../../daos/dao')
 
 
@@ -31,6 +31,11 @@ router.get('/sort/:sorter', (req, res)=> {
 })
 // lastly go to movieDao to get localhost to work
 
+//http://localhost:2025/api/nat/aus or usa
+// add above findById 
+router.get('/nat/:nationality', (req, res)=> {
+    dao.findByNat(res, dao.table, req.params.nationality)
+})
 
 //Add a path for findById
 //http://localhost:2025/api/:id
@@ -38,10 +43,7 @@ router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
 
-//http://localhost:2025/api/
-router.get('/nationality', (req, res)=> {
-    dao.findByNat(res, dao.table, req.params.nationality)
-})
+
 
 
 module.exports = router

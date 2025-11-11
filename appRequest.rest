@@ -1,0 +1,39 @@
+
+//get findAll
+GET http://localhost:2025/api/movie
+
+###
+
+//get findById
+GET http://localhost:2025/api/movie/3
+
+
+###
+//get sort
+GET http://localhost:2025/api/movie/sort/yr_released
+
+
+
+###
+//get findByNat (nationality)
+GET http://localhost:2025/api/movie/nat/aus
+
+
+###
+// findAll Actors
+GET http://localhost:2025/api/actor 
+
+
+###
+// Sort Actor by first name
+GET http://localhost:2025/api/actor/fname
+
+
+###
+// find Actor by Id
+GET http://loaclhost:2025/api/actor/5
+
+
+###
+// find actor first name
+GET http://localhost:2025/api/actor/name/tyler

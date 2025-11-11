@@ -12,13 +12,23 @@ router.get('/api', (req, res)=> {
     // res.send('movie api') // check localhost:2025/api
     res.json ({
 // endpoint for this data
-        'All Actors': `http://localhost:${PORT}/api/movie` 
+        'All Movies': `http://localhost:${PORT}/api/movie`,
+        'All Actors': `http://localhost:${PORT}/api/actor`, 
     })
 }) 
 
-router.use('/api/movie', require('./api/movieRoutes'))
-//click on link in localhost:2025, should see data
+const endpoints = [
+    'movie',
+    'actor',
 
+]
+
+// router.use('/api/movie', require('./api/movieRoutes'))
+// //click on link in localhost:2025, should see data
+// router.use('/api/actor', require('./api/actorRoutes'))
+endpoints.forEach(endpoint => {
+    router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
+})
 
 //build ERROR HANDLE PAGE
 router.use((req, res, next)=> {
