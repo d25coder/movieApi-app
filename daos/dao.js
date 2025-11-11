@@ -16,9 +16,15 @@ const actorDao = {
     ...require('./api/actorDao')
 }
 
+const directorDao ={
+    ...daoCommon,
+    ...require('./api/directorDao')
+}
+
 module.exports = {
     movieDao,
     actorDao, // ready to be picked up by actorRoutes
+    directorDao,
 }
 
 //now everything will meetup in the same space in dao.js instead of mulitple routes

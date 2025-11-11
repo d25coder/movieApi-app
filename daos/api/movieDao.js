@@ -12,16 +12,18 @@ const movieDao = {
         con.query(
             `SELECT * FROM ${table} WHERE nationality = '${nationality}';`,
             (error, rows)=> {
-                if (!error) {
-                    res.json(...rows) 
-                } else {
-                    console.log(`DAO Error ${error}`)
-                    res.json({
-                        "message": 'error', 
-                        'table': `${table}`,
-                        'error': error 
-                    })
-                }
+                queryAction(res, error, rows, table)
+
+                // if (!error) {
+                //     res.json(...rows) 
+                // } else {
+                //     console.log(`DAO Error ${error}`)
+                //     res.json({
+                //         "message": 'error', 
+                //         'table': `${table}`,
+                //         'error': error 
+                //     })
+                // }
             } // now go to movieRoutes
         )
     }

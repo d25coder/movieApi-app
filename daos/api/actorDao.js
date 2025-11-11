@@ -11,16 +11,17 @@ const  actorDao = {
         con.query(
             `SELECT * FROM ${table} WHERE first_name = '${first_name}';`,
             (error, rows)=> {
-                if (!error) {
-                    res.json(...rows)
-                } else {
-                    console.log(`DAO Error ${error}`)
-                    res.json({
-                        "message": 'error', 
-                        'table': `${table}`,
-                        'error': error
-                    })
-                } // go to actorRoutes
+                 queryAction(res, error, rows, table)               
+                // if (!error) {
+                //     res.json(...rows)
+                // } else {
+                //     console.log(`DAO Error ${error}`)
+                //     res.json({
+                //         "message": 'error', 
+                //         'table': `${table}`,
+                //         'error': error
+                //     })
+                // } // go to actorRoutes
             }
         )
         // const sql = `SELECT a.actor_id,

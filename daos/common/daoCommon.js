@@ -7,7 +7,7 @@
 const connect = require('../../config/dbconfig')
 
 //import queryAction.js and destructure
-// const { queryAction } = require('../../helpers/queryAction')
+const { queryAction } = require('../../helpers/queryAction')
 
 
 
@@ -52,16 +52,17 @@ const daoCommon = {
         connect.query(
             `SELECT * FROM ${table} WHERE ${table}_id = ${id};`,
             (error, rows)=> {
-                if (!error) {
-                    res.json(...rows)
-                } else {
-                    console.log(`DAO Error: ${error}`)
-                    res.json({
-                        "message": 'error', 
-                        'table': `${table}`,
-                        'error': error 
-                    })
-                } //go to movieRoutes.js
+                queryAction(res, error, rows, table)
+                // if (!error) {
+                //     res.json(...rows)
+                // } else {
+                //     console.log(`DAO Error: ${error}`)
+                //     res.json({
+                //         "message": 'error', 
+                //         'table': `${table}`,
+                //         'error': error 
+                //     })
+                // } //go to movieRoutes.js
             }
         )
     },
@@ -72,22 +73,24 @@ const daoCommon = {
         connect.query(
             `SELECT * FROM ${table} ORDER BY ${sorter};`,           
             (error, rows)=> {
-                if (!error) {
-// if: no error and is equal to 1
-                    if (rows.length == 1) {
-                        res.json(...rows)
-// else: What if it is greater than 1
-                    } else {
-                        res.json(rows)
-                    }
-                } else {
-                    console.log(`DAO Error ${error}`)
-                    res.json({
-                        "message": 'error', 
-                        'table': `${table}`,
-                        'error': error 
-                    })
-                }
+                 queryAction(res, error, rows, table)
+
+//                 if (!error) {
+// // if: no error and is equal to 1
+//                     if (rows.length == 1) {
+//                         res.json(...rows)
+// // else: What if it is greater than 1
+//                     } else {
+//                         res.json(rows)
+//                     }
+//                 } else {
+//                     console.log(`DAO Error ${error}`)
+//                     res.json({
+//                         "message": 'error', 
+//                         'table': `${table}`,
+//                         'error': error 
+//                     })
+//                 }
             } 
         ) //now go to movieRoutes.js
     },
