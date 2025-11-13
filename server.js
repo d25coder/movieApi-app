@@ -31,6 +31,11 @@ server.use(express.urlencoded({ extended: true}))
 
 
 
+
+// installed ejs
+server.set('view engine', 'ejs')
+
+
 //part2 of last step - WHEN i see / in localhost:2025, then use ROUTER.js
 server.use('/', router)
 

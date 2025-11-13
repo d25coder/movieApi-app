@@ -2,6 +2,7 @@
 //may want to do things in actor table only and not movie_streaming_platform
 
 const con = require('../../config/dbconfig')
+const { queryAction } = require('../../helpers/queryAction')
 
 const movieDao = {
     table: 'movie',

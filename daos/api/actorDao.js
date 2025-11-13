@@ -21,7 +21,8 @@ const  actorDao = {
                 //         'table': `${table}`,
                 //         'error': error
                 //     })
-                // } // go to actorRoutes
+                // } 
+                // go to actorRoutes
             }
         )
         // const sql = `SELECT a.actor_id,

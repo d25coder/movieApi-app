@@ -1,6 +1,6 @@
 const router = require('express').Router()
 //../ leave api ../leave routes folder /go into dao /go to dao.js 
-const { actorDao : dao } = require('../../daos/dao.js')
+const { actorDao : dao } = require('../../daos/dao')
  
 
 //http://localhost:2025/api/actor
@@ -10,7 +10,7 @@ router.get('/', (req, res)=> {
 })// go to router.js
 
 // http:localhost:2025/api/sort/
-router.get('/sort/sorter', (req, res)=> {
+router.get('/sort/:sorter', (req, res)=> {
     dao.sort(res, dao.table, req.params.sorter)
 })
 

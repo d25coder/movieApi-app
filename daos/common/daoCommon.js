@@ -24,24 +24,26 @@ const daoCommon = {
         connect.query(
             `SELECT * FROM ${table};`, //part1 of query table
             (error, rows)=> {
+                queryAction(res, error, rows, table)
+
 //if there is NO error, then {do something} else...
-                if (!error) {
-//if rows.length = 1 item in the array then remove [] and return the data
-                    if (rows.length ===1) {
-                        res.json(...rows)
-// else if rows.length is 2 or greater, then send the full array
-                    } else {
-                        res.json(rows)
-                    }
-//else if there is a error, receive an error message 
-                } else {
-                    console.log('DAO Error: ${error}')
-                    res.json({
-                        "message": 'error',
-                        'table': `${table}`,
-                        'error': error 
-                    })
-                } //go to movieRoutes.js
+//                 if (!error) {
+// //if rows.length = 1 item in the array then remove [] and return the data
+//                     if (rows.length ===1) {
+//                         res.json(...rows)
+// // else if rows.length is 2 or greater, then send the full array
+//                     } else {
+//                         res.json(rows)
+//                     }
+// //else if there is a error, receive an error message 
+//                 } else {
+//                     console.log('DAO Error: ${error}')
+//                     res.json({
+//                         "message": 'error',
+//                         'table': `${table}`,
+//                         'error': error 
+//                     })
+//                 } //go to movieRoutes.js
             }
         )      
     },

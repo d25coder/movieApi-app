@@ -5,6 +5,14 @@ const router = express.Router()
 const PORT = process.env.PORT || 2025 //create port 
 
 
+// Home.ejs http://localhost:2025
+router.get('/', (req, res)=> {
+    res.render('pages/home', {
+        title: 'movieApi',
+        name: "Destinie's Movie App Api" 
+    })
+})
+
 //ROOT ROUTE => http://localhost:2025/api
 //takes you to api page
 //Build out api endpoint
