@@ -14,8 +14,8 @@ router.get('/sort/:sorter', (req, res)=> {
     dao.sort(res, dao.table, req.params.sorter)
 })
 
-router.get('/name/:first_name', (req, res)=> {
-    dao.findByName(res, dao.table, req.params.first_name)
+router.get('/search', (req, res)=> {
+    dao.search(req, res, dao.table)
 })
 
 // http:localhost:2025/api/actor/5

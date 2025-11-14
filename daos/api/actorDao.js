@@ -8,7 +8,7 @@ const { queryAction } = require('../../helpers/queryAction')
 const  actorDao = {
     table: 'actor',
 // add query specific to actor table such as first and last name 
-    search: (res, res, table)=> {
+    search: (req, res, table)=> {
         let sql = ''
 
         con.query = req.query ? req.query : {}
