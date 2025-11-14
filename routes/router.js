@@ -45,8 +45,12 @@ endpoints.forEach(endpoint => {
 //build ERROR HANDLE PAGE
 router.use((req, res, next)=> {
     res.status(404)
-    res.send('<h1>404 Error This page does not exits</h1>')
-})
+    // res.send('<h1>404 Error This page does not exits</h1>')
+    .render('pages/error',{
+        title: 'Error Page',
+        name: 'Error'
+    })
+}) // go to Error.ejs
 
 
 module.exports = router 
