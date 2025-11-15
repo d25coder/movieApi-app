@@ -18,7 +18,7 @@ const { queryAction } = require('../../helpers/queryAction')
 const daoCommon = {
 // create methods that query the database
 // Find All data from the database
-    findAll: (req, res, table)=> {
+    findAll: (res, table)=> {
  // use dbconfig 
  // .query(sql query, callback function)
         connect.query(

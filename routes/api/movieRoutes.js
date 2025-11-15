@@ -4,7 +4,7 @@
 
 
 const express = require('express')
-const router= express.Router()
+const router = express.Router()
 
 //imported movieDao file to movieRoutes and name it name
 const { movieDao: dao} = require('../../daos/dao')
@@ -16,7 +16,7 @@ router.get('/', (req, res)=> {
 //when i click on localhost:2025/api/movie,
 //dao.findAll takes req, res, table fom daoCommon
 //dao.table pulled from movieDao
-    dao.findAll(req, res, dao.table)
+    dao.findAll(res, dao.table)
 })
 // when i click on localhost:2025/api/movie link, i want it to findAll
 //findAll in daoCommon.js says `SELECT * FROM table

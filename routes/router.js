@@ -23,7 +23,7 @@ router.get('/api', (req, res)=> {
         'All Movies': `http://localhost:${PORT}/api/movie`,
         'All Actors': `http://localhost:${PORT}/api/actor`,
         'All Directors': `http://localhost:${PORT}/api/director`,
-         
+        'All Genres': `http://localhost:${PORT}/api/genre` // 5 genreDao
     })
 }) 
 
@@ -31,6 +31,7 @@ const endpoints = [
     'movie',
     'actor',
     'director',
+    'genre' // 6 genreDao
 
 
 ]

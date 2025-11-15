@@ -20,12 +20,18 @@ const directorDao = {
     ...daoCommon,
     ...require('./api/directorDao')
 }
+// 2 genreDao
+const genreDao = {
+    ...daoCommon,
+    ...require('./api/genreDao')
+}
 
 
 module.exports = {
     movieDao,
     actorDao, // ready to be picked up by actorRoutes
-    directorDao
+    directorDao,
+    genreDao // 3 genreDao, go to genreRoutes
 }
 
 //now everything will meetup in the same space in dao.js instead of mulitple routes
