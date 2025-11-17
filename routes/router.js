@@ -23,8 +23,7 @@ router.get('/api', (req, res)=> {
         'All Movies': `http://localhost:${PORT}/api/movie`,
         'All Actors': `http://localhost:${PORT}/api/actor`,
         'All Directors': `http://localhost:${PORT}/api/director`,
-        'All Genres': `http://localhost:${PORT}/api/genre`, // 5 genreDao
-        'All Productions': `http://localhost:${PORT}/api/production`
+        'All Genres': `http://localhost:${PORT}/api/genre` // 5 genreDao
     })
 }) 
 
@@ -32,8 +31,7 @@ const endpoints = [
     'movie',
     'actor',
     'director',
-    'genre', // 6 genreDao
-    'production'
+    'genre' // 6 genreDao
 ]
 
 router.use('/api/movie', require('./api/movieRoutes'))
@@ -44,7 +42,6 @@ router.use('/api/actor', require('./api/actorRoutes'))
 // })
 router.use('/api/director', require('./api/directorRoutes')) 
 router.use('/api/genre', require('./api/genreRoutes')) 
-router.use('/api/production', require('./api/productionRoutes'))
 
 //build ERROR HANDLE PAGE
 router.use((req, res, next)=> {
