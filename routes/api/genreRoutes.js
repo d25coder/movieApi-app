@@ -6,7 +6,7 @@ const { genreDao: dao } = require('../../daos/dao')
 
 // Query 1: findAll GENRES http://localhost:2025/api/genre
 router.get('/', (req, res)=> {
-    dao.findAll(req, res, dao.table) 
+    dao.findAll(res, dao.table) 
 })
 
 // Query 2: sort through GENRES -
@@ -15,7 +15,10 @@ router.get('/sort/:sorter', (req, res)=> {
 })
 
 // Query 4: I want GENRES that have Action, Drama, and family
-
+router.get('/search', (req, res)=> {
+    dao.searchByGenre(req, res, dao.table)
+})
+ 
 
 // Query 3: get GENRES by id - 
 router.get('/:id', (req, res)=> {
@@ -23,4 +26,4 @@ router.get('/:id', (req, res)=> {
 })
 
 // go to ROUTER.js
-module.export = router
+module.exports = router 

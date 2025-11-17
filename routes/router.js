@@ -32,22 +32,22 @@ const endpoints = [
     'actor',
     'director',
     'genre' // 6 genreDao
-
-
 ]
 
-// router.use('/api/movie', require('./api/movieRoutes'))
+router.use('/api/movie', require('./api/movieRoutes'))
 // //click on link in localhost:2025, should see data
-// router.use('/api/actor', require('./api/actorRoutes'))
-endpoints.forEach(endpoint => {
-    router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
-})
+router.use('/api/actor', require('./api/actorRoutes'))
+// endpoints.forEach(endpoint => {
+//     router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
+// })
+router.use('/api/director', require('./api/directorRoutes')) 
+router.use('/api/genre', require('./api/genreRoutes')) 
 
 //build ERROR HANDLE PAGE
 router.use((req, res, next)=> {
     res.status(404)
     // res.send('<h1>404 Error This page does not exits</h1>')
-    .render('pages/error',{
+    .render('pages/error', {
         title: 'Error Page',
         name: 'Error'
     })

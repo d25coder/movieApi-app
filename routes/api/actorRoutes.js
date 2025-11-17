@@ -5,8 +5,8 @@ const { actorDao : dao } = require('../../daos/dao')
 
 //http://localhost:2025/api/actor
 router.get('/', (req, res)=> {
-    dao.findAll(req, res, dao.table)
-    
+    dao.findAll(res, dao.table)
+     
 })// go to router.js
 
 // http:localhost:2025/api/sort/

@@ -4,7 +4,7 @@ const { directorDao: dao } = require('../../daos/dao')
 
 // find all directors - http:localhost:2025/api/director
 router.get('/', (req, res)=> {
-    dao.findAll(req, res, dao.table)
+    dao.findAll(res, dao.table)
     
 })// go to router.js
 
@@ -22,5 +22,5 @@ router.get('/search', (req, res)=> {
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
-
+ 
 module.exports = router
