@@ -25,20 +25,20 @@ router.get('/', (req, res)=> {
 
 
 //Sort goes above /:id to prevent from sorting the id data
-//http://localhost:2025/sort/yr_released
+// http://localhost:2025/api/movie/sort/yr_released 
 router.get('/sort/:sorter', (req, res)=> {
     dao.sort(res, dao.table, req.params.sorter)
 })
 // lastly go to movieDao to get localhost to work
 
-//http://localhost:2025/api/nat/aus or usa
-// add above findById 
+// http://localhost:2025/api/movie/nat/aus
+//  or usa 
 router.get('/nat/:nationality', (req, res)=> {
     dao.findByNat(res, dao.table, req.params.nationality)
 })
 
 //Add a path for findById
-//http://localhost:2025/api/:id
+// http://localhost:2025/api/movie/3
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })

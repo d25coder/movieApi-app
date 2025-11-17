@@ -1,39 +1,61 @@
 
-//get findAll
-GET http://localhost:2025/api/movie
+// FindAll Actors
+ http://localhost:2025/api/actor
+
+ ###
+ // SORT through Actors by last name
+ http://localhost:2025/api/actor/sort/last_name 
+
+ ###
+ // SEARCH actors by last name with P
+ http://localhost:2025/api/actor/search?last_name=p
+
+ ###
+// get ACTOR by id 10
+http://localhost:2025/api/actor/29 
 
 ###
-
-//get findById
-GET http://localhost:2025/api/movie/3
-
+// FindAll Directors 
+http://localhost:2025/api/director
 
 ###
-//get sort
-GET http://localhost:2025/api/movie/sort/yr_released
-
-
-
-###
-//get findByNat (nationality)
-GET http://localhost:2025/api/movie/nat/aus
-
-
-###
-// findAll Actors
-GET http://localhost:2025/api/actor 
-
-
-###
-// Sort Actor by first name
-GET http://localhost:2025/api/actor/fname
+// SORT through Directors 
+http://localhost:2025/api/director/sort/first_name
 
 
 ###
-// find Actor by Id
-GET http://loaclhost:2025/api/actor/5
+// SEARCH Director by first 2 letters in their first name
+http://localhost:2025/api/director/search?first_name=an 
+
+###
+// get director by ID 
+http://localhost:2025/api/director/10
+
+###
+// FindAll Genre
+http://localhost:2025/api/genre
+
+###
+// SORT through Genre
+http://localhost:2025/api/genre/sort/genre
+
+###
+// SEARCH Genre that have Action, Drama
+http://localhost:2025/api/movie?genre=action
+
+###
+// get GENRES by ID
+http://localhost:2025/api/genre/7
 
 
 ###
-// find actor first name
-GET http://localhost:2025/api/actor/name/tyler
+// FindAll Movies
+http://localhost:2025/api/movie
+
+###
+// SORT Movie by yr_released
+http://localhost:2025/api/movie/sort/yr_released
+
+###
+// SEARCH Movie by nationality
+http://localhost:2025/api/movie/nat/aus
