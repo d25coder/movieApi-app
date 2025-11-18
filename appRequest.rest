@@ -59,3 +59,19 @@ http://localhost:2025/api/movie/sort/yr_released
 ###
 // SEARCH Movie by nationality
 http://localhost:2025/api/movie/nat/aus
+
+###
+// get Movie by ID
+http://localhost:2025/api/movie/3
+
+
+###
+// POST CREATE Actor
+http://localhost:2025/api/actor/create
+Content-Type: application/json 
+{
+    "fName": "Ian",
+    "lName": "Ziering" 
+}
+
+

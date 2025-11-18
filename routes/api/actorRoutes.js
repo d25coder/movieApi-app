@@ -28,4 +28,10 @@ router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
 
+// POST request - goes below GET requests
+// http://localhost:2025/api/actor/create
+router.post('/create', (req, res)=> {
+    dao.create(req, res, dao.table)
+})
+
 module.exports = router 

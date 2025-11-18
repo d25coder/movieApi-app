@@ -13,6 +13,14 @@ router.get('/', (req, res)=> {
     })
 })
 
+//Artits Form http://localhost:2025/artist-form
+router.get('/artst-form', (req, res)=> {
+    res.render('pages/artist-form', {
+        title: 'artist form',
+        name: 'artist-form'
+    })
+})
+
 //ROOT ROUTE => http://localhost:2025/api
 //takes you to api page
 //Build out api endpoint
@@ -43,11 +51,11 @@ router.use('/api/actor', require('./api/actorRoutes'))
 router.use('/api/director', require('./api/directorRoutes')) 
 router.use('/api/genre', require('./api/genreRoutes')) 
 
-//build ERROR HANDLE PAGE
+//build ERROR.js HANDLE PAGE
 router.use((req, res, next)=> {
     res.status(404)
     // res.send('<h1>404 Error This page does not exits</h1>')
-    .render('pages/error', {
+    .render('pages/error', { //.render means its complete
         title: 'Error Page',
         name: 'Error'
     })

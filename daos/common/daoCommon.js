@@ -96,7 +96,34 @@ const daoCommon = {
             } 
         ) //now go to movieRoutes.js
     },
-
+//POST CREATE
+    create: (req, res, table)=> {
+        // console.log(req)
+        // res.send('complete')
+        if (Object.keys(req.body).length === 0) {
+            res.json({
+                "error": true,
+                "message": "No fields to create" 
+            })
+        } else {
+            const fields = Object.keys(req.body) 
+            const values = Object.values(req.body) 
+            
+            connect.execute(
+                `INSERT INTO ${table} SET ${fields.join(' = ?, ')} = ?;`,
+                values,
+                (error, dbres)=> {
+                    if (!error){
+                        res.json({
+                            Last_id: dbres.insertId 
+                        })
+                    } else {
+                        console.log(`${table}Dao error: `, error) 
+                    }
+                }     
+            )
+        }
+    }
 
 }
 
